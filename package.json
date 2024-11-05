@@ -1,0 +1,49 @@
+{
+  "name": "booking-app",
+  "version": "1.0.0",
+  "description": "Event seat booking app",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha \"./{,!(node_modules)/**/}*.test.js\" --exit",
+    "start": "nodemon app.js",
+    "lint:check": "eslint ./src --ext .js",
+    "lint:fix": "eslint ./src --fix --ext .js .",
+    "model:generate": "sequelize --options-path ./src/db/configs/.sequelize model:generate",
+    "migrate": "npx sequelize --options-path ./src/db/configs/.sequelize db:migrate",
+    "migrate:undo": "npx sequelize --options-path ./src/db/configs/.sequelize db:migrate:undo",
+    "migrate:fresh": "sequelize --options-path ./src/db/configs/.sequelize db:migrate:undo:all",
+    "seed": "npx sequelize --options-path ./src/db/configs/.sequelize db:seed:all",
+    "seed:file": "npx sequelize --options-path ./src/db/configs/.sequelize db:seed",
+    "seed:generate": "npx sequelize --options-path ./src/db/configs/.sequelize seed:generate",
+    "seed:location": "npx sequelize --options-path ./src/db/configs/.sequelize db:seed --seed geo-location-seeder.js",
+    "migrate:refresh": "sequelize --options-path ./src/db/configs/.sequelize db:migrate:undo:all && npx sequelize --options-path ./src/db/configs/.sequelize db:migrate"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0",
+    "moment-timezone": "^0.5.43",
+    "nodemailer": "^6.7.7",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.28.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.1",
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^8.35.0",
+    "mocha": "^10.2.0",
+    "morgan": "^1.10.0",
+    "rewire": "^6.0.0",
+    "sequelize-cli": "^6.5.1",
+    "sinon": "^15.0.1",
+    "sinon-chai": "^3.7.0"
+  }
+}
