@@ -1,9 +1,9 @@
 'use strict';
+
 const express = require('express');
 const router = express.Router();
-const { AuthController } = require('../controllers');
-const { ValidateMiddleware } = require('../middlewares');
+const { EventController } = require('../controllers');
 
-router.get('/', AuthController.signup);
+router.get('/', EventController.getAll);
 
 module.exports = router;

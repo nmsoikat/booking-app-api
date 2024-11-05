@@ -1,8 +1,6 @@
 'use strict';
 
-const { AuthUtil } = require('../utils')
-const { EventRepository } = require('../repositories');
-const { ErrorConstant, RoleConstant } = require('../constants');
+const { EventRepository, SeatRepository } = require('../repositories');
 
 const EventService = {
     getAll: async (req, transaction = null) => {
@@ -44,7 +42,7 @@ const EventService = {
             seats.push({ event_id: event.id });
         }
 
-        await EventRepository.createSeats(seats, transaction)
+        await SeatRepository.createSeats(seats, transaction)
 
         return event;
     },

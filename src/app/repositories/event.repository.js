@@ -26,13 +26,7 @@ const EventRepository = {
         const event = await db.Event.findByPk(id, { transaction });
         if (!event) throw new Error(ErrorConstant.EVENT_NOT_FOUND)
         await event.destroy({ transaction });
-    },
-
-    createSeats: async (seats, transaction = null) => {
-        const newSeats = await db.Seat.bulkCreate(seats, { transaction });
-        if (!newSeats) throw new Error(ErrorConstant.EVENT_SEAT_CREATION_FAIL)
-        return newSeats;
-    },
+    }
 };
 
 module.exports = EventRepository;
