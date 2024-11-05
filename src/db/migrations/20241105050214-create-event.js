@@ -35,6 +35,10 @@ module.exports = {
       total_seat: {
         type: Sequelize.INTEGER
       },
+      sold_out_seat: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
       thumbnail: {
         type: Sequelize.STRING
       },

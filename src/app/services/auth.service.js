@@ -7,7 +7,6 @@ const { ErrorConstant, RoleConstant } = require('../constants');
 const AuthService = {
     login: async (req, transaction = null) => {
         const { email, password } = req.body;
-        console.log("🚀 ~ req.body:", req.body);
 
         const customer = await AuthRepository.getByEmail(email, transaction)
         if (!customer || !(await AuthUtil.compareHashedPassword(password, customer.password))) {
@@ -61,7 +60,7 @@ const AuthService = {
         newCustomer.password = undefined;
 
         const result = {
-            user: newCustomer,
+            customer: newCustomer,
             access_token
         }
 

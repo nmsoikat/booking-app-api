@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
             end_time: DataTypes.DATE,
             organizer_id: DataTypes.INTEGER,
             total_seat: DataTypes.INTEGER,
+            sold_out_seat: DataTypes.INTEGER,
             thumbnail: DataTypes.STRING,
             banner: DataTypes.STRING,
             created_at: DataTypes.DATE,

@@ -32,6 +32,7 @@ const ErrorConstant = {
     // EVENT SEAT ERROR
     EVENT_SEAT_CREATION_FAIL: 'Event seats creation failed!',
     EVENT_SEAT_BOOKED: 'Sorry, all seats are booked!',
+    EVENT_SEAT_SOLD_OUT_REMOVE: 'Your trying remove sold out seat!',
 
     // EMAIL
     EMAIL_TRANSPORTER_CREATION_FAIL: 'Fail to create email transporter!',

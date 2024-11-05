@@ -9,7 +9,6 @@ const AuthController = {
         const transaction = await db.sequelize.transaction();
         try {
             const { customer, access_token } = await AuthService.login(req, transaction);
-
             customer.dataValues = { ...customer.dataValues, access_token };
 
             await transaction.commit();
@@ -23,10 +22,11 @@ const AuthController = {
     signup: async (req, res, next) => {
         const transaction = await db.sequelize.transaction();
         try {
-            const result = await AuthService.signup(req, transaction);
+            const { customer, access_token } = await AuthService.signup(req, transaction);
+            customer.dataValues = { ...customer.dataValues, access_token };
 
             await transaction.commit();
-            ResponseUtil.success(res, result);
+            ResponseUtil.success(res, customer);
         } catch (error) {
             await transaction.rollback();
             next(error);

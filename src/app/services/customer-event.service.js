@@ -1,7 +1,7 @@
 'use strict';
 
 const { ErrorConstant } = require('../constants');
-const { SeatRepository } = require('../repositories');
+const { SeatRepository, EventRepository } = require('../repositories');
 
 const CustomerEventService = {
     reserveSeat: async (req, transaction = null) => {
@@ -24,7 +24,10 @@ const CustomerEventService = {
             version: 1,
         }
 
-        const seat = await SeatRepository.reserveSeat(reserveFilter, reserveData, transaction)
+        const seat = await SeatRepository.reserveSeat(reserveFilter, reserveData, transaction);
+
+        const event = await EventRepository.getById(event_id, transaction);
+        await event.increment('sold_out_seat', { by: 1 })
 
         // TODO: send email
 

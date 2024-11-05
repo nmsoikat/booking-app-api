@@ -8,10 +8,9 @@ const SeatRepository = {
         return newSeats;
     },
 
-    updateSeats: async (seats, transaction = null) => {
-        const newSeats = await db.Seat.bulkCreate(seats, { transaction });
-        if (!newSeats) throw new Error(ErrorConstant.EVENT_SEAT_CREATION_FAIL)
-        return newSeats;
+    findAvailableSeatAndDelete: async (id, transaction = null) => {
+        const seat = await db.Seat.findOne({ where: { event_id, customer_id: null }, transaction });
+        return await seat.destroy({ transaction });
     },
 
     findAvailableSeat: async (event_id, transaction = null) => {

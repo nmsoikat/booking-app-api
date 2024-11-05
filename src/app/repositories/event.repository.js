@@ -7,7 +7,9 @@ const EventRepository = {
     },
 
     getById: async (id, transaction = null) => {
-        return await db.Event.findByPk(id, { transaction });
+        const event = await db.Event.findByPk(id, { transaction });
+        if (!event) throw new Error(ErrorConstant.EVENT_NOT_FOUND);
+        return event;
     },
 
     create: async (data, transaction = null) => {
@@ -16,9 +18,9 @@ const EventRepository = {
         return newEvent;
     },
 
-    update: async (data, transaction = null) => {
-        const event = await db.Event.create(data, { transaction });
-        if (!event) throw new Error(ErrorConstant.USER_CREATION_FAIL)
+    update: async (id, data, transaction = null) => {
+        const event = await db.Event.update(data, { where: { id } }, { transaction });
+        if (!event) throw new Error(ErrorConstant.EVENT_UPDATE_FAIL)
         return event;
     },
 
