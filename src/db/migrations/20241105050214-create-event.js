@@ -27,7 +27,7 @@ module.exports = {
       organizer_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'events',
+          model: 'customers',
           key: 'id'
         },
         onDelete: 'CASCADE'

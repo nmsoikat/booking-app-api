@@ -1,6 +1,7 @@
 'use strict';
 
 const { ResponseUtil } = require("../utils")
+const multer = require('multer');
 
 /**
 * Global error handler
@@ -16,6 +17,9 @@ module.exports = async (err, req, res, next) => {
         ResponseUtil.devError(err, res)
     } else {
         // console.log("#PROD-ERROR-LOG:", err);
+        // if (err instanceof multer.MulterError) {
+        //     res.send("upload filed")
+        // }
         ResponseUtil.prodError(err, res)
     }
 }

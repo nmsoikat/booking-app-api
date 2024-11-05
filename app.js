@@ -2,6 +2,7 @@
 
 require('dotenv').config();
 const cors = require('cors');
+const path = require('path');
 const morgan = require('morgan');
 const express = require('express');
 const compression = require('compression');
@@ -15,6 +16,7 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
 
+app.use('/storage', express.static(path.join(__dirname, 'storage')))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());

@@ -2,5 +2,6 @@
 
 module.exports = {
     AuthRepository: require('./auth.repository'),
-    CustomerRepository: require('./customer.repository')
+    CustomerRepository: require('./customer.repository'),
+    EventRepository: require('./event.repository'),
 };

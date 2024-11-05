@@ -8,4 +8,5 @@ module.exports = {
     TrimMiddleware: require('./trim.middleware'),
     ErrorMiddleware: require('./error.middleware'),
     ValidateMiddleware: require('./validate.middleware'),
+    UploadMiddleware: require('./upload.middleware'),
 };

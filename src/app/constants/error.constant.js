@@ -29,6 +29,9 @@ const ErrorConstant = {
     EVENT_DELETE_FAIL: 'Event deletion failed!',
     EVENT_NOT_FOUND: 'Event not found!',
 
+    // EVENT SEAT ERROR
+    EVENT_SEAT_CREATION_FAIL: 'Event seats creation failed!',
+
     // EMAIL
     EMAIL_TRANSPORTER_CREATION_FAIL: 'Fail to create email transporter!',
     EMAIL_SENDING_FAILED: 'Email sending failed!',
