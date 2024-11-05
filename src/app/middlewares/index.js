@@ -2,8 +2,8 @@
 
 module.exports = {
     Authenticate: require('./authenticate.middleware'),
-    AdminProtect: require('./customer-verify.middleware'),
-    CustomerProtect: require('./admin-verify.middleware'),
+    AdminProtect: require('./admin-verify.middleware'),
+    CustomerProtect: require('./customer-verify.middleware'),
 
     TrimMiddleware: require('./trim.middleware'),
     ErrorMiddleware: require('./error.middleware'),

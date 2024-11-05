@@ -15,7 +15,7 @@ module.exports = async (req, res, next) => {
             throw new Error(ErrorConstant.NOT_LOGIN)
         }
 
-        if (!req?.user?.role !== RoleConstant.USER) {
+        if (req?.user?.role !== RoleConstant.USER) {
             throw new Error(ErrorConstant.UNAUTHORIZED_ACCESS)
         }
 

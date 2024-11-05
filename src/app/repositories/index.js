@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-    AuthRepository: require('./auth.repository')
+    AuthRepository: require('./auth.repository'),
+    CustomerRepository: require('./customer.repository')
 };

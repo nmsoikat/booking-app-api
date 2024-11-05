@@ -2,7 +2,7 @@
 
 const { promisify } = require('util')
 const jwt = require('jsonwebtoken');
-const { UserRepository } = require('../repositories');
+const { AuthRepository } = require('../repositories');
 const { ErrorConstant } = require('../constants');
 
 /**
@@ -28,7 +28,7 @@ module.exports = async (req, res, next) => {
         const decoded = await promisify(jwt.verify)(token, process.env.JWT_ACCESS_TOKEN_SECRET)
 
         // Check user still exist
-        const currentUser = await UserRepository.getById(decoded.id)
+        const currentUser = await AuthRepository.getById(decoded.id)
         if (!currentUser) {
             throw new Error(ErrorConstant.USER_NO_LONGER_EXIST)
         }
