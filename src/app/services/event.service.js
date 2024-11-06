@@ -56,7 +56,7 @@ const EventService = {
             location,
             start_time,
             end_time,
-            total_seat,
+            total_seat
         } = req.body;
 
         const data = {
@@ -66,9 +66,11 @@ const EventService = {
             start_time,
             end_time,
             total_seat,
-            organizer_id: req.user.id,
-            thumbnail: req?.files?.thumbnail?.[0]?.filename || '',
-            banner: req?.files?.banner?.[0]?.filename || '',
+            organizer_id: req.user.id
+        }
+
+        if (req?.files?.thumbnail?.[0]?.filename) {
+            data.thumbnail = req?.files?.thumbnail?.[0]?.filename
         }
 
         // seat check
